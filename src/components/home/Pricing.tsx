@@ -37,7 +37,7 @@ const Pricing = () => {
               ))}
             </ul>
             <Link
-              to="/get-started"
+              to="https://buy.stripe.com/6oE6s73xn7Cy00MfZf"
               className="block w-full bg-purple-600 text-white text-center py-3 px-4 rounded-lg hover:bg-purple-700 transition-colors"
             >
               Get Started
@@ -55,7 +55,7 @@ const Pricing = () => {
               <h3 className="text-2xl font-bold text-white mb-2">Lifetime Access</h3>
               <div className="flex items-center justify-center space-x-2 mb-1">
                 <span className="text-lg line-through text-purple-200">$99</span>
-                <div className="text-4xl font-bold text-white">$67</div>
+                <div className="text-4xl font-bold text-white">$47</div>
               </div>
               <p className="text-purple-100">One-time payment</p>
             </div>
@@ -74,7 +74,7 @@ const Pricing = () => {
             </ul>
             
             <Link
-              to="/get-lifetime-access"
+              to="https://buy.stripe.com/8wM7wb5Fv5uq28U5kA"
               className="block w-full bg-white text-purple-600 text-center py-3 px-4 rounded-lg hover:bg-purple-50 transition-colors"
             >
               Get Lifetime Access
