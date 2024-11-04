@@ -15,10 +15,10 @@ const Signup = () => {
   const [searchParams] = useSearchParams();
 
   useEffect(() => {
-    // Check for payment success in URL parameters
     const paymentSuccess = searchParams.get('payment_success');
     if (paymentSuccess === 'true') {
       sessionStorage.setItem('stripe_success', 'true');
+      toast.success('Payment confirmed! Please create your account to continue.');
     }
   }, [searchParams]);
 
@@ -27,6 +27,13 @@ const Signup = () => {
     setLoading(true);
     
     try {
+      const hasValidPayment = sessionStorage.getItem('stripe_success') === 'true';
+      if (!hasValidPayment) {
+        toast.error('Please complete payment before signing up');
+        navigate('/#pricing');
+        return;
+      }
+
       const { error } = await signUp(email, password);
       
       if (error) {
@@ -35,15 +42,8 @@ const Signup = () => {
         return;
       }
       
-      // Check if we have a valid payment before proceeding to onboarding
-      const hasValidPayment = sessionStorage.getItem('stripe_success') === 'true';
-      if (!hasValidPayment) {
-        toast.error('Please complete payment before signing up');
-        navigate('/#pricing');
-        return;
-      }
+      sessionStorage.removeItem('stripe_success');
       
-      // If successful, navigate to onboarding
       navigate('/onboarding');
     } catch (error: any) {
       console.error('Signup error:', error);
