@@ -1,5 +1,6 @@
 import React from 'react';
-import { Check, Sparkles, Heart, PawPrint, Globe, Users } from 'lucide-react';
+import { Check, Sparkles, Heart, PawPrint } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Pricing = () => {
   const features = [
@@ -35,12 +36,12 @@ const Pricing = () => {
                 </li>
               ))}
             </ul>
-            <a
-              href="https://buy.stripe.com/monthly-plan-url"
+            <Link
+              to="/get-started"
               className="block w-full bg-purple-600 text-white text-center py-3 px-4 rounded-lg hover:bg-purple-700 transition-colors"
             >
               Get Started
-            </a>
+            </Link>
           </div>
 
           {/* Lifetime Plan */}
@@ -72,12 +73,12 @@ const Pricing = () => {
               </li>
             </ul>
             
-            <a
-              href="https://buy.stripe.com/lifetime-plan-url"
+            <Link
+              to="/get-lifetime-access"
               className="block w-full bg-white text-purple-600 text-center py-3 px-4 rounded-lg hover:bg-purple-50 transition-colors"
             >
               Get Lifetime Access
-            </a>
+            </Link>
           </div>
         </div>
 

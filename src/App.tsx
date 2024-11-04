@@ -10,6 +10,8 @@ import Onboarding from './pages/Onboarding';
 import Dashboard from './pages/Dashboard';
 import Settings from './pages/Settings';
 import Recommendations from './pages/Recommendations';
+import GetStarted from './pages/GetStarted';
+import GetLifetimeAccess from './pages/GetLifetimeAccess';
 
 // Protected Route component that checks for authentication
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
@@ -38,6 +40,8 @@ function AppRoutes() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={user ? <Navigate to="/dashboard" /> : <Login />} />
         <Route path="/signup" element={user ? <Navigate to="/onboarding" /> : <Signup />} />
+        <Route path="/get-started" element={<GetStarted />} />
+        <Route path="/get-lifetime-access" element={<GetLifetimeAccess />} />
         <Route 
           path="/onboarding" 
           element={
