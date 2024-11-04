@@ -1,5 +1,5 @@
 import React from 'react';
-import { Check, Sparkles, Heart, PawPrint } from 'lucide-react';
+import { Check, Sparkles, Heart, PawPrint, Globe, Users } from 'lucide-react';
 
 const Pricing = () => {
   const features = [
@@ -105,6 +105,41 @@ const Pricing = () => {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Let's Make a Difference Section */}
+        <div className="mt-16 text-center">
+          <h3 className="text-3xl font-bold text-gray-900 mb-6">Let's Make a Difference</h3>
+          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            <div className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow">
+              <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <PawPrint className="h-6 w-6 text-purple-600" />
+              </div>
+              <h4 className="text-lg font-semibold mb-2">Rescue Support</h4>
+              <p className="text-gray-600">Every subscription helps fund shelter improvements and medical care for rescue puppies.</p>
+            </div>
+            
+            <div className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow">
+              <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Globe className="h-6 w-6 text-purple-600" />
+              </div>
+              <h4 className="text-lg font-semibold mb-2">Global Impact</h4>
+              <p className="text-gray-600">We partner with international organizations to improve animal welfare standards worldwide.</p>
+            </div>
+            
+            <div className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow">
+              <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Users className="h-6 w-6 text-purple-600" />
+              </div>
+              <h4 className="text-lg font-semibold mb-2">Community Building</h4>
+              <p className="text-gray-600">Join a network of passionate puppy parents committed to making a positive change.</p>
+            </div>
+          </div>
+          
+          <div className="mt-8 text-gray-600 max-w-2xl mx-auto">
+            <p>Together, we can create a world where every puppy has a loving home and the care they deserve. 
+            Your subscription doesn't just help your puppy—it helps countless others in need.</p>
           </div>
         </div>
       </div>
