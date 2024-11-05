@@ -95,8 +95,8 @@ export default function Onboarding() {
         await generateGuidanceForWeek(puppy, 1);
       }
 
-      // Navigate to payment page
-      navigate('/payment');
+      // Navigate to dashboard instead of payment page
+      navigate('/dashboard');
     } catch (error) {
       console.error('Error:', error);
       toast.error('Failed to complete setup. Please try again.');
@@ -148,87 +148,4 @@ export default function Onboarding() {
                   Male
                 </button>
                 <button
-                  className={`p-3 border rounded-md ${
-                    formData.gender === 'Female' ? 'bg-purple-100 border-purple-500' : ''
-                  }`}
-                  onClick={() => setFormData({ ...formData, gender: 'Female' })}
-                >
-                  Female
-                </button>
-              </div>
-              <input
-                type="date"
-                value={formData.birthday}
-                onChange={(e) => {
-                  const selectedDate = new Date(e.target.value);
-                  const today = new Date();
-                  if (selectedDate <= today) {
-                    setFormData({ ...formData, birthday: e.target.value });
-                  }
-                }}
-                max={new Date().toISOString().split('T')[0]}
-                className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
-              />
-              <div className="border-2 border-dashed rounded-md p-4">
-                <input
-                  type="file"
-                  accept="image/*"
-                  onChange={handlePhotoChange}
-                  className="hidden"
-                  id="photo-upload"
-                />
-                <label
-                  htmlFor="photo-upload"
-                  className="cursor-pointer block text-center"
-                >
-                  <span className="text-purple-600">Upload a photo</span>
-                  <p className="text-sm text-gray-500">PNG, JPG up to 10MB</p>
-                </label>
-                {formData.photo && (
-                  <p className="mt-2 text-sm text-gray-600">
-                    Selected: {formData.photo.name}
-                  </p>
-                )}
-              </div>
-            </div>
-          </div>
-        );
-
-      default:
-        return null;
-    }
-  };
-
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-white flex items-center justify-center p-4">
-      <div className="bg-white rounded-lg shadow-xl p-8 max-w-md w-full">
-        {renderStep()}
-        <div className="mt-6 flex justify-between">
-          {step > 1 && (
-            <button
-              onClick={handlePrevious}
-              className="px-6 py-2 text-purple-600 hover:bg-purple-50 rounded-md transition-colors"
-            >
-              Previous
-            </button>
-          )}
-          {step < 3 ? (
-            <button
-              onClick={handleNext}
-              className="ml-auto px-6 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700 transition-colors"
-            >
-              Next
-            </button>
-          ) : (
-            <button
-              onClick={handleSubmit}
-              className="ml-auto px-6 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700 transition-colors"
-            >
-              Complete Setup
-            </button>
-          )}
-        </div>
-      </div>
-    </div>
-  );
-}
+                  className
