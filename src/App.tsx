@@ -10,8 +10,13 @@ import Onboarding from './pages/Onboarding';
 import Dashboard from './pages/Dashboard';
 import Settings from './pages/Settings';
 import Recommendations from './pages/Recommendations';
-import GetStarted from './pages/GetStarted';
-import GetLifetimeAccess from './pages/GetLifetimeAccess';
+import Contact from './pages/Contact';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import Terms from './pages/Terms';
+import Features from './pages/Features';
+import Pricing from './pages/Pricing';
+import BlackFriday from './pages/BlackFriday';
+import ChristmasSale from './pages/ChristmasSale';
 
 // Protected Route component that checks for authentication
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
@@ -31,64 +36,61 @@ const PaymentProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   return <>{children}</>;
 };
 
-function AppRoutes() {
-  const { user } = useAuth();
-
-  return (
-    <Routes>
-      <Route element={<Layout />}>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={user ? <Navigate to="/dashboard" /> : <Login />} />
-        <Route path="/signup" element={user ? <Navigate to="/onboarding" /> : <Signup />} />
-        <Route path="/get-started" element={<GetStarted />} />
-        <Route path="/get-lifetime-access" element={<GetLifetimeAccess />} />
-        <Route 
-          path="/onboarding" 
-          element={
-            <PaymentProtectedRoute>
-              <Onboarding />
-            </PaymentProtectedRoute>
-          } 
-        />
-        <Route 
-          path="/dashboard" 
-          element={
-            <ProtectedRoute>
-              <Dashboard />
-            </ProtectedRoute>
-          } 
-        />
-        <Route 
-          path="/recommendations" 
-          element={
-            <ProtectedRoute>
-              <Recommendations />
-            </ProtectedRoute>
-          } 
-        />
-        <Route 
-          path="/settings" 
-          element={
-            <ProtectedRoute>
-              <Settings />
-            </ProtectedRoute>
-          } 
-        />
-        <Route path="*" element={<Navigate to="/" replace />} />
-      </Route>
-    </Routes>
-  );
-}
-
-function App() {
+const App = () => {
   return (
     <AuthProvider>
       <BrowserRouter>
-        <AppRoutes />
+        <Routes>
+          <Route element={<Layout />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/features" element={<Features />} />
+            <Route path="/pricing" element={<Pricing />} />
+            <Route path="/black-friday" element={<BlackFriday />} />
+            <Route path="/christmas-sale" element={<ChristmasSale />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route 
+              path="/onboarding" 
+              element={
+                <PaymentProtectedRoute>
+                  <Onboarding />
+                </PaymentProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/dashboard" 
+              element={
+                <ProtectedRoute>
+                  <Dashboard />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/recommendations" 
+              element={
+                <ProtectedRoute>
+                  <Recommendations />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/settings" 
+              element={
+                <ProtectedRoute>
+                  <Settings />
+                </ProtectedRoute>
+              } 
+            />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/privacy" element={<PrivacyPolicy />} />
+            <Route path="/terms" element={<Terms />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Route>
+        </Routes>
+        <Toaster position="top-right" />
       </BrowserRouter>
-      <Toaster position="top-right" />
     </AuthProvider>
   );
-}
+};
 
 export default App;

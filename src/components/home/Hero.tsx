@@ -44,7 +44,7 @@ const Hero = () => {
 
             <div className="mt-8 flex flex-wrap gap-4">
               <Link
-                to="/signup"
+                to="/pricing"
                 className="inline-flex items-center px-8 py-3 border border-transparent text-base font-medium rounded-lg shadow-lg text-white bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 transform hover:-translate-y-0.5 transition-all duration-200"
               >
                 Start Your Journey
