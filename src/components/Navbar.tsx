@@ -2,6 +2,8 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { PawPrint, LogOut, Settings, Gift, BookHeart } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
+import mainLogo from '../assets/PuppyPack.png';
+
 
 const Navbar = () => {
   const { user, signOut } = useAuth();
@@ -18,8 +20,7 @@ const Navbar = () => {
         <div className="flex justify-between h-16">
           <div className="flex items-center">
             <Link to="/" className="flex items-center space-x-2">
-              <PawPrint className="h-8 w-8 text-purple-600" />
-              <span className="text-xl font-bold text-gray-900">PuppyPack</span>
+            <img  src={mainLogo} alt="PuppyPack"/>
             </Link>
           </div>
           
